@@ -156,12 +156,6 @@ exercises = [("Pistons","1 x 25", 5),
 # Create dataframe from list of tuples
 exercises = pd.DataFrame(exercises, columns=['Exercise', 'Repetitions', 'Weight (lbs)/Resistance'])
 
-# # Title of document
-# title_of_document = "AC Sprain Shoulder Exercises"
-#
-# # Create xlsx
-# exercises.to_excel(title_of_document+".xlsx", index=False)
-
 ### Write stretches and exercises to excel sheet ###
 # Title of document
 title_of_document = "AC Sprain Shoulder Stretches and Exercises " + dt.today().strftime("%Y.%m.%d") +".xlsx"
