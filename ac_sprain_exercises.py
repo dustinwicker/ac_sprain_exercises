@@ -117,7 +117,8 @@ stretches = pd.DataFrame(stretches, columns=['Stretch', 'Repetitions'])
 #                                              'Option B Repetitions', 'Option B Weight (lbs)/Resistance'])
 
 # 4/8/2019 - advised I was ready to make increases delineated in red on AC Sprain Shoulder Exercise Adjustment Options.xlsx
-# 5/31/2019 - updated reps and weights to various exercises
+# 5/31/2019 - updated reps and weight to various exercises
+# 6/11/2019 - updated reps and weight to Incline Press
 # List of tuples for exercises
 exercises = [("Pistons","1 x 25", 5),
              ("Small circles - CW", "1 x 15", 10),
@@ -138,7 +139,7 @@ exercises = [("Pistons","1 x 25", 5),
              ("Lunge position - opposite knee to opposite shoulder", "1 x 15 (each side)", 10),
              ("Reverse fly on pec deck (palms down)", "3 x 10", 50),
              ("Reverse fly on pec deck (palms up)", "3 x 10", 50),
-             ("Incline Press", "3 x 10", 15),
+             ("Incline Press", "2 x 10", 20),
              ("Lat Pull Down", "3 x 10", 85),
              ("Lat Pull Down - undergrip (bicep curl)", "3 x 10", 85),
              ("Seated Machine Back Row (palms facing each other)", "3 x 10", 85),
