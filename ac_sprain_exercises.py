@@ -8,8 +8,12 @@ from datetime import datetime as dt
 
 ### Date of Creation: 1/22/2019 ###
 
-# Change to appropriate directory
-os.chdir('/Users/dustinwicker/PyCharmProjects/ac_sprain')
+# Change current working directory
+if os.getcwd().split("/")[-1] == 'PycharmProjects':
+    original_working_directory = os.getcwd()
+    os.chdir(os.getcwd() + '/ac_sprain')
+else:
+    os.chdir(os.path.expanduser('~') + '/PycharmProjects/ac_sprain')
 
 # List of tuples for stretches
 stretches = [("Laying on affected side, elbow on surface with fingers sticking up - bring back of hand to ground", '3 x 30 sec'),
@@ -18,7 +22,8 @@ stretches = [("Laying on affected side, elbow on surface with fingers sticking u
              ("Affected arm behind head in triangle", '3 x 30 sec'),
              ("Arms up holding top of door frame leaning forward", '3 x 30 sec'),
              ("External rotation", '3 x 30 sec'),
-             ("Behind the back external rotation", '5 x 30 sec')]
+             ("Behind the back external rotation", '5 x 30 sec'),
+             ("Egyptian Stretch", '3 x 30 sec')]
 
 # Create DataFrame using list of tuples created above
 stretches = pd.DataFrame(stretches, columns=['Stretch', 'Repetitions'])
