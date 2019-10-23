@@ -28,6 +28,71 @@ stretches = [("Laying on affected side, elbow on surface with fingers sticking u
 # Create DataFrame using list of tuples created above
 stretches = pd.DataFrame(stretches, columns=['Stretch', 'Repetitions'])
 
+# 4/8/2019 - advised I was ready to make increases delineated in red on AC Sprain Shoulder Exercise Adjustment Options.xlsx
+# 5/31/2019 - updated reps and weight for various exercises
+# 6/11/2019 - updated reps and weight for Incline Press
+# 7/19/2019 - updated reps and weights for various exercises
+# 10/23/19 - updated reps and weights for various exercises
+# List of tuples for exercises
+exercises = [("Pistons","1 x 30", 10),
+             ("Small circles - CW", "1 x 15", 10),
+             ("Small circles - CCW", "1 x 15", 10),
+             ("Drop to side (make L)", "1 x 15", 10),
+             ("Row to the sky", "2 x 10", 20),
+             ("I", "1 x 15", 5),
+             ("Y", "1 x 15", 5),
+             ("T", "1 x 15", 5),
+             ("Progressive Resisted: Extension (Prone)", "3 x 10", 5),
+             ("Progressive Resisted: External Rotation (Side-Lying)", "3 x 10", 5),
+             ("Elbow Extension: Resisted", "3 x 10", 5),
+             ("Strengthening: Scaption with External Rotation (30° off the wall)", "3 x 10", 3),
+             ("Hammer curls", "1 x 20", 20),
+             ("Bicep curls", "1 x 20", 20),
+             ("Regular pushups", "3 x 15", '-'),
+             ("Regular pushups with weight in each hand - going up to 90°", "1 x 10 (each arm)", 15),
+             ("Lunge position - opposite knee to opposite shoulder", "1 x 15 (each side)", 10),
+             ("Reverse fly on pec deck (palms down)", "3 x 10", 50),
+             ("Reverse fly on pec deck (palms up)", "3 x 10", 50),
+             ("Incline Press", "3 x 10", 20),
+             ("Lat Pull Down", "3 x 10", 95),
+             ("Lat Pull Down - undergrip (bicep curl)", "3 x 10", 95),
+             ("Seated Machine Back Row (palms facing each other)", "3 x 10", 95),
+             ("Rebounder (modified - laying on ground and throwing ball in air)", "1 x 30", 6),
+             ("Dips", "2 x 15", "90 (Using assisted weight machine)"),
+             ("Chinups", "2 x 15", "90 (Using assisted weight machine)"),
+             ("Shake bar", "1", "180 secs"),
+             ("Planks on bosi ball", "5", '20 secs on, 10 secs off for 140 secs'),
+             ("Shrugs", "3 x 15", 'Black resistance band'),
+             ("Strengthening: Resisted Diagonal", "3 x 15", 'Black resistance band'),
+             ("Pull out-in", "3 x 10", 'Black resistance band'),
+             ("Arms straight out, going to sides", "3 x 10", 'Double black resistance band'),
+             ("Internal rotation", "3 x 10", 'Black resistance band'),
+             ("External rotation", "3 x 10", 'Black resistance band')]
+
+# Create dataframe from list of tuples
+exercises = pd.DataFrame(exercises, columns=['Exercise', 'Repetitions', 'Weight (lbs)/Resistance'])
+
+### Write stretches and exercises to excel sheet ###
+# Title of document
+title_of_document = "AC Sprain Shoulder Stretches and Exercises " + dt.today().strftime("%Y.%m.%d") +".xlsx"
+
+# Create ExcelWriter with path and appropriate engine to write DataFrame objects into excel sheets
+writer = pd.ExcelWriter(path= title_of_document, engine= "openpyxl")
+
+# Write stretches to excel sheet
+stretches.to_excel(writer, index=False)
+
+# Write exercies to excel sheet below stretches
+exercises.to_excel(writer, startrow=len(stretches)+2, index=False)
+
+# Save created object to current directory
+writer.save()
+
+
+
+
+
+
 # # Title of csv
 # title_of_document = "AC Sprain Shoulder Exercises"
 #
@@ -120,62 +185,3 @@ stretches = pd.DataFrame(stretches, columns=['Stretch', 'Repetitions'])
 # exercises = pd.DataFrame(exercises, columns=['Exercise', 'Current Repetitions', 'Current Weight (lbs)/Resistance',
 #                                              'Option A Repetitions', 'Option A Weight (lbs)/Resistance',
 #                                              'Option B Repetitions', 'Option B Weight (lbs)/Resistance'])
-
-# 4/8/2019 - advised I was ready to make increases delineated in red on AC Sprain Shoulder Exercise Adjustment Options.xlsx
-# 5/31/2019 - updated reps and weight for various exercises
-# 6/11/2019 - updated reps and weight for Incline Press
-# 7/19/2019 - updated reps and weights for various exercises
-# List of tuples for exercises
-exercises = [("Pistons","1 x 25", 5),
-             ("Small circles - CW", "1 x 15", 10),
-             ("Small circles - CCW", "1 x 15", 10),
-             ("Drop to side (make L)", "1 x 15", 10),
-             ("Row to the sky", "2 x 10", 15),
-             ("I", "1 x 15", 5),
-             ("Y", "1 x 15", 5),
-             ("T", "1 x 15", 5),
-             ("Progressive Resisted: Extension (Prone)", "3 x 10", 3),
-             ("Progressive Resisted: External Rotation (Side-Lying)", "3 x 10", 5),
-             ("Elbow Extension: Resisted", "3 x 10", 5),
-             ("Strengthening: Scaption with External Rotation (30° off the wall)", "3 x 10", 3),
-             ("Hammer curls", "1 x 20", 20),
-             ("Bicep curls", "1 x 20", 20),
-             ("Regular pushups", "3 x 15", '-'),
-             ("Regular pushups with weight in each hand - going up to 90°", "1 x 10 (each arm)", 15),
-             ("Lunge position - opposite knee to opposite shoulder", "1 x 15 (each side)", 10),
-             ("Reverse fly on pec deck (palms down)", "3 x 10", 50),
-             ("Reverse fly on pec deck (palms up)", "3 x 10", 50),
-             ("Incline Press", "3 x 10", 20),
-             ("Lat Pull Down", "3 x 10", 95),
-             ("Lat Pull Down - undergrip (bicep curl)", "3 x 10", 95),
-             ("Seated Machine Back Row (palms facing each other)", "3 x 10", 95),
-             ("Rebounder (modified - laying on ground and throwing ball in air)", "1 x 25", 6),
-             ("Dips", "2 x 15", "85 (Using assisted weight machine)"),
-             ("Chinups", "2 x 15", "85 (Using assisted weight machine)"),
-             ("Shake bar", "1", "180 secs"),
-             ("Planks on bosi ball", "5", '20 secs on, 10 secs off for 140 secs'),
-             ("Shrugs", "3 x 15", 'Black resistance band'),
-             ("Strengthening: Resisted Diagonal", "3 x 15", 'Black resistance band'),
-             ("Pull out-in", "3 x 10", 'Black resistance band'),
-             ("Arms straight out, going to sides", "3 x 10", 'Double black resistance band'),
-             ("Internal rotation", "3 x 10", 'Black resistance band'),
-             ("External rotation", "3 x 10", 'Black resistance band')]
-
-# Create dataframe from list of tuples
-exercises = pd.DataFrame(exercises, columns=['Exercise', 'Repetitions', 'Weight (lbs)/Resistance'])
-
-### Write stretches and exercises to excel sheet ###
-# Title of document
-title_of_document = "AC Sprain Shoulder Stretches and Exercises " + dt.today().strftime("%Y.%m.%d") +".xlsx"
-
-# Create ExcelWriter with path and appropriate engine to write DataFrame objects into excel sheets
-writer = pd.ExcelWriter(path= title_of_document, engine= "openpyxl")
-
-# Write stretches to excel sheet
-stretches.to_excel(writer, index=False)
-
-# Write exercies to excel sheet below stretches
-exercises.to_excel(writer, startrow=len(stretches)+2, index=False)
-
-# Save created object to current directory
-writer.save()
